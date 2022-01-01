@@ -1,0 +1,38 @@
+import java.applet.Applet; 
+import java.awt.*; 
+import java.awt.event.*;  
+/*
+<applet code="Week12a" width="500" height="500">
+</applet>
+*/
+
+public class Week12a  extends Applet implements Runnable 
+{ 
+	String msg="Welcome to Java Programming Language .......    ";  
+	public void init() 
+	{ 
+		Thread t=new Thread(this); 
+		t.start(); 
+	}  
+	public void run() 
+	{ 
+		char ch; 
+		for(; ;) 
+		{ 
+			try 
+			{ 
+				repaint(); 
+				Thread.sleep(400); 
+				ch=msg.charAt(0); 
+				msg=msg.substring(1,msg.length()); 
+				msg+=ch; 
+			} 
+			catch(InterruptedException e) 
+			{} 
+		} 
+	} 
+	public void paint(Graphics g) 
+	{ 
+		g.drawString(msg,10,10); 
+	} 
+}

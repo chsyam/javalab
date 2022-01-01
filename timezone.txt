@@ -1,0 +1,7 @@
+public class TimeZone
+{
+	public static void main(String[] args) {
+		
+        System.out.println(Integer.parseInt(args[0])+12+":"+args[1]+":"+args[2]);
+	}
+}

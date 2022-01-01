@@ -1,0 +1,43 @@
+package college;  
+public class Student  
+{  
+ String roll="20135A0519";  
+ String name="P.Karthik";  
+ double cgpa=8.7;  
+ public void student_info()  
+ {  
+ System.out.println(roll +" " + name +" "+ cgpa);  
+ }  
+} 
+
+# Sports
+
+package sportsAcademy;  
+public interface Sports  
+{  
+ void sports_info();  
+}  
+
+#Display_info 
+
+package report;  
+import college.*;  
+import sportsAcademy.*;  
+class Cricket implements Sports  
+{  
+ public void sports_info()  
+ {  
+ String player_name="nandu";  
+ int player_id=101;  
+ System.out.println(player_name+" "+player_id);   }  
+}  
+public class Display_info  
+{  
+ public static void main(String args[])  
+ {  
+ Student s=new Student();  
+ s.student_info();  
+ Cricket cd=new Cricket(); 
+ cd.sports_info();  
+ }  
+}  

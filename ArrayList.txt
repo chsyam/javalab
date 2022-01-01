@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Week8b {
+	public static void main(String args[]) {
+		ArrayList<String> mylist = new ArrayList<String>();
+		mylist.add("java");
+		mylist.add("AA");
+		mylist.add("flat");
+		mylist.add("maths");
+		mylist.add("pos");
+		mylist.add("BB");
+		System.out.println("the size of the arraylist:" + mylist.size());
+		System.out.println("the arraylist element are:" + mylist);
+		mylist.remove("BB");
+		System.out.println("the size of the arraylist after deletion of element:" + mylist.size());
+		System.out.println("the arraylist element after deletion:" + mylist);
+		System.out.println("the arraylist element after using get method:" + mylist.get(0));
+		mylist.clear();
+		System.out.println("the size of the arraylist after clearing the array:" + mylist.size());
+		System.out.println("the arraylist element are:" + mylist);
+	}
+}

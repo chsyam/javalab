@@ -1,0 +1,19 @@
+import java.util.*;
+import java.util.Scanner;
+public class AcceptString
+ {
+      public static void main (String args[]){
+      Scanner sc = new Scanner(System.in);
+      
+      int hrs = sc.nextInt();
+      int min = sc.nextInt();
+      int sec = sc.nextInt();
+      String time = sc.next();
+      if((time.equals("pm")||time.equals("PM"))&&hrs !=12)
+          hrs += 12;
+      if((time.equals("am")||time.equals("AM"))&&hrs == 12)
+          hrs = 0;
+      System.out.format("%02d:%02d:%02d",hrs,min,sec);
+    
+   }
+}

@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Week7b {
+	public static void main(String[] args) {
+		Vector vec = new Vector();
+		int a = 519;
+		float b = 4.689f;
+		char c = 'P';
+		boolean d = true;
+		Integer w = a;
+		Float x = b;
+		Character y = c;
+		Boolean z = d;
+		vec.add(w);
+		vec.add(x);
+		vec.add(y);
+		vec.add(z);
+		System.out.println(vec);
+	}
+}

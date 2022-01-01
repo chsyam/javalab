@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class Week3b
+{
+	public static void main(String args[])
+	{
+		Scanner input=new Scanner(System.in);
+		int year,id,arr[][],maxsold,max_yr,max_id;
+		System.out.print("Enter the no.of years:");
+		year=input.nextInt();
+		System.out.print("Enter the no.of id:");
+		id=input.nextInt();
+		arr=new int[year+1][id+1];
+		System.out.println("Enter the financial years:");
+		for(int i=1;i<year+1;i++)
+			arr[i][0]=input.nextInt();
+		System.out.println("Enter the ids:");
+		for(int j=1;j<id+1;j++)
+			arr[0][j]=input.nextInt();
+		for(int i=1;i<year+1;i++)
+		{
+			System.out.println("Enter the sales for"+arr[i][0]);
+			for(int j=1;j<id+1;j++)
+				arr[i][j]=input.nextInt();
+		}
+		maxsold=arr[1][1];
+		max_yr=1;
+		max_id=1;
+		for(int i=1;i<year+1;i++)
+		{
+			for(int j=1;j<id+1;j++)
+			{
+				if(arr[i][j]>maxsold)
+				{
+					maxsold=arr[i][j];
+					max_yr=i;
+					max_id=j;
+				}
+			}
+		}
+		System.out.println("year is:"+arr[max_yr][0]+"and id is:"+arr[0][max_id]);
+		input.close();
+	}
+}

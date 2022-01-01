@@ -1,0 +1,29 @@
+public class Week6a {
+	public static void main(String[] args) {
+		Cost v1 = new Cost();
+		v1.display();
+	}
+}
+
+class Vehicle {
+	String v = "Cars";
+}
+
+class Brand extends Vehicle {
+	String b = " maurthi";
+
+}
+
+class Cost extends Brand {
+	int r = 10000000;
+
+	Cost() {
+		System.out.println("Cost class constructor");
+	}
+
+	void display() {
+		System.out.println("Vehicle Type : " + v);
+		System.out.println("Brand of the vehicle :" + b);
+		System.out.println("Cost of the vehicle : " + r);
+	}
+}

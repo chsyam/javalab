@@ -1,0 +1,20 @@
+import java.util.*;
+
+class Week10a {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int num1, num2, q;
+		try {
+			System.out.println("Enter the value of first integer : ");
+			num1 = Integer.parseInt(sc.next());
+			System.out.println("Enter the value of second integer : ");
+			num2 = Integer.parseInt(sc.next());
+			q = num1 / num2;
+			System.out.println("Quotient is : " + q);
+		} catch (NumberFormatException e) {
+			System.out.println("Numbers should be integers : " + e);
+		} catch (ArithmeticException e) {
+			System.out.println("Cannot divide with zero : " + e);
+		}
+	}
+}

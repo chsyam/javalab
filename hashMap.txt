@@ -1,0 +1,25 @@
+class Week8c {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		HashMap<Integer, Employee> map = new HashMap<Integer, Employee>();
+		Employee sc1 = new Employee();
+		sc1.setter(1, "sri", "CSE");
+		map.put(sc1.getId(), sc1);
+		Employee sc2 = new Employee();
+		sc2.setter(2, "pallavi", "IT");
+		map.put(sc2.getId(), sc2);
+		Employee sc3 = new Employee();
+		sc3.setter(3, "Bharghavi", "MECH");
+		map.put(sc3.getId(), sc3);
+		System.out.print("Enter the ID to search : ");
+		int id = s.nextInt();
+		if (map.containsKey(id)) {
+			Employee emp = map.get(id);
+			System.out.println("Employee ID : " + emp.getId());
+			System.out.println("Employee Name: " + emp.getName());
+			System.out.println("Employee Department: " + emp.getDept());
+		} else {
+			System.out.println("Id not found");
+		}
+	}
+}

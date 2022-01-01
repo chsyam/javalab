@@ -1,0 +1,76 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class Week13a extends JApplet implements ItemListener
+{
+    ButtonGroup radio;
+    JRadioButton jr1,jr2,jr3;
+    JLabel jl;
+    String msg="";
+    int x,y,x1,y1;
+    int flag=-1;
+    public void init()
+    {
+        setLayout(new FlowLayout());
+        radio=new ButtonGroup();
+        jr1=new JRadioButton("Line");
+        jr2=new JRadioButton("Rectangle");
+        jr3=new JRadioButton("Oval");
+        radio.add(jr1);
+        radio.add(jr2);
+        radio.add(jr3);
+        jr1.addItemListener(this);
+        jr2.addItemListener(this);
+        jr3.addItemListener(this);
+        add(jr1);
+        add(jr2);
+        add(jr3);
+        jl=new JLabel();
+        add(jl);
+        addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent me)
+            {
+                x=me.getX();
+                y=me.getY();
+            }
+        });
+        addMouseMotionListener(new MouseAdapter()
+        {
+            public void mouseMoved(MouseEvent me)
+            {
+                x1=me.getX();
+                y1=me.getY();
+                msg="Mouse currently at : ("+x1+","+y1+")";
+                jl.setText(msg);
+            }
+        });
+    }
+    public void itemStateChanged(ItemEvent ie)
+    {
+        if(ie.getSource()==jr1)
+        {
+            flag=0;
+            repaint();
+        }
+        if(ie.getSource()==jr2)
+        {
+            flag=1;
+            repaint();
+        }
+        if(ie.getSource()==jr3)
+        {
+            flag=2;
+            repaint();
+        }
+    }
+    public void paint(Graphics g)
+    {
+        if(flag==0)
+        g.drawLine(x,y,150,150);
+        if(flag==1)
+        g.drawRect(x,y,50,100);
+        if(flag==2)
+        g.drawOval(x,y,150,200);
+    }
+}

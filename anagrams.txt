@@ -1,0 +1,49 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Week5c {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter 1st string : ");
+		String str = sc.nextLine();
+		System.out.println("Enter 2nd string : ");
+		String str1 = sc.nextLine();
+		char ch[] = str.toCharArray();
+		char ch1[] = str1.toCharArray();
+		if (str.length() == str1.length()) {
+			for (int i = 0; i < ch.length; i++) {
+				for (int j = i + 1; j < ch.length; j++) {
+					if (Character.toLowerCase(ch[j]) < Character.toLowerCase(ch[i])) {
+						char temp = ch[i];
+						ch[i] = ch[j];
+						ch[j] = temp;
+					}
+				}
+			}
+			System.out.println("Sorted strings ");
+			for (int i = 0; i < ch.length; i++) {
+				System.out.print(ch[i]);
+			}
+			System.out.println("\n" + Arrays.toString(ch));
+			for (int k = 0; k < ch1.length; k++) {
+				for (int m = k + 1; m < ch1.length; m++) {
+					if (Character.toLowerCase(ch1[m]) < Character.toLowerCase(ch1[k])) {
+						char temp = ch1[k];
+						ch1[k] = ch1[m];
+						ch1[m] = temp;
+					}
+				}
+			}
+			for (int k = 0; k < ch1.length; k++) {
+				System.out.print(ch1[k]);
+			}
+			System.out.println("\n" + Arrays.toString(ch1));
+		}
+		boolean d = Arrays.equals(ch, ch1);
+		if (d == true) {
+			System.out.println("Given strings are anagrams");
+		} else {
+			System.out.println("Given strings are not anagrams");
+		}
+	}
+}

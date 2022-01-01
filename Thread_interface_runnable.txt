@@ -1,0 +1,36 @@
+// Same above program by implementing runnable
+class Week11ab {
+    public static void main(String args[]) {
+        ChildThread one = new ChildThread("1st Thread");
+        ChildThread two = new ChildThread("2nd Thread");
+        ChildThread three = new ChildThread("3rd Thread");
+    }
+}
+
+class ChildThread implements Runnable {
+    Thread t;
+
+    ChildThread(String name) {
+        t = new Thread(this, name);
+        t.start();
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            try {
+                if (t.getName().equals("1st Thread")) {
+                    Thread.sleep(1000);
+                    System.out.println(t.getName() + ": Good Morning");
+                } else if (t.getName().equals("2nd Thread")) {
+                    Thread.sleep(2000);
+                    System.out.println(t.getName() + ": Hello");
+                } else {
+                    Thread.sleep(3000);
+                    System.out.println(t.getName() + ": Welcome");
+                }
+            } catch (InterruptedException e) {
+                System.out.println(t.getName() + " is interrupted");
+            }
+        }
+    }
+}

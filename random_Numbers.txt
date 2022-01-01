@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Week8a {
+	public static void main(String[] args) {
+		int c = 0;
+		Scanner scan = new Scanner(System.in);
+		System.out.println("enter the value of x1:");
+		int x1 = scan.nextInt();
+		System.out.println("enter the value of x2:");
+		int x2 = scan.nextInt();
+		System.out.println("enter the number of values to be printed between x1 and x2:");
+		int n = scan.nextInt();
+		Random t = new Random();
+		System.out.println("the random values are:");
+		for (int i = 1; i <= n; i++) {
+			if (x1 > 0) {
+				c++;
+				System.out.println(t.nextInt(x2 - x1 + 1) + x1);
+			} else {
+				if (c == 0) {
+					System.out.println("x1 must be greater than 0");
+					break;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+import java.util.*;
+
+class Week5b {
+	public static void main(String args[]) {
+		String a = "";
+		int count = 0, cout = 0;
+		String arr[] = new String[20];
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter number of strings :");
+		int n = sc.nextInt();
+		System.out.println("Enter " + n + " Strings : ");
+		for (int i = 0; i <= n; i++) {
+			arr[i] = sc.nextLine();
+		}
+		System.out.println("Array strings are :");
+		for (int i = 0; i <= n; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println("\nVowels and Consonants:");
+		for (int i = 0; i <= n; i++) {
+			a = arr[i];
+			a = a.toLowerCase();
+			for (int j = 0; j < a.length(); j++) {
+				if (a.charAt(j) == 'a' || a.charAt(j) == 'e' || a.charAt(j) == 'i' || a.charAt(j) == 'o'
+						|| a.charAt(j) == 'u') {
+					count++;
+				} else {
+					cout++;
+				}
+			}
+		}
+		System.out.println("Number of vowels : " + count);
+		System.out.println("Number of consonants : " + cout);
+	}
+}

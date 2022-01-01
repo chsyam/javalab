@@ -1,0 +1,24 @@
+import javax.swing.*;
+public class Week13b
+{
+    JFrame f;
+    Week13b()
+    {
+        f=new JFrame();
+        String data[][]={{"1001","syam","670000"},
+        {"1002","kumar","560000"},
+        {"1003","Sachin","856230"}};
+        String column[]={"ID","NAME","SALARY"};
+        JTable jt=new JTable(data,column);
+        jt.setBounds(10,40,200,300);
+        JScrollPane sp=new JScrollPane(jt);
+        f.add(sp);
+        f.setSize(100,400);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void main(String args[])
+    {
+        new Week13b();
+    }
+}

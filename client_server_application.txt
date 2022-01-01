@@ -1,0 +1,49 @@
+// Server side :
+import java.net.*;
+import java.io.*;
+import java.math.*;
+public class Server_week15{
+    public static void main(String... args) throws Exception {
+        System.out.println("Server Started");
+        int port = 1064;
+        ServerSocket server_socket = new ServerSocket(port);
+        System.out.println("Server is waiting for the client");
+        Socket socket = server_socket.accept();
+        System.out.println("Client connected to the server");
+        InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+        BufferedReader b = new BufferedReader(isr);
+        String client_radius = b.readLine();
+        int r = Integer.parseInt(client_radius);
+        System.out.println("Client Data :"+client_radius);
+        Double area = (Math.PI)*r*r;
+
+        OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+        PrintWriter pw = new PrintWriter(osw);
+        pw.println(area);
+        pw.flush();
+    }
+}
+// Client side :
+import java.net.*;
+import java.util.*;
+import java.io.*;
+class Client_week15{
+    public static void main(String... args) throws Exception {
+        final String host = "localhost";
+        final int port = 1064;
+        Socket s = new Socket(host,port);
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter radius to send to server :");
+        int radius = sc.nextInt();     
+        OutputStreamWriter osr = new OutputStreamWriter(s.getOutputStream());
+        PrintWriter p = new PrintWriter(osr);
+        p.println(radius);
+        osr.flush();
+        InputStreamReader isr = new InputStreamReader(s.getInputStream());
+        BufferedReader b = new BufferedReader(isr);
+
+        String server_area = b.readLine();
+        System.out.println("Area is :"+server_area);
+        System.out.println("Server Disconnected");
+    }
+}
